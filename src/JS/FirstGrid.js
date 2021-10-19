@@ -1,9 +1,11 @@
 import '../CSS/FirstGrid.css';
-
+import React from 'react';
 
 function FirstGrid(props){
     return(
-        <div>First Grid aplicado</div>
+        <section className="FirstGrid">
+            
+        </section>
     );
 }
 

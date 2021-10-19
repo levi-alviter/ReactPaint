@@ -1,0 +1,11 @@
+.FirstGrid{
+    width: 500px;
+    height: 500px;
+    min-width: 500px;
+    min-height: 500px;
+    background-color: #dddbe4;
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+    grid-template-columns: repeat(10,1fr);
+    border: 2px solid #555555;
+}
