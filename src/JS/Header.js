@@ -1,13 +1,23 @@
 import '../CSS/Header.css';
 const colorPallete = ['#040404','#FFFFFF',' #ccd4e3','#f36464','#f3ac54','#eccc4c','#6bd494','#34b3ab','#4ba2e5','#5277da','#b494f2','#eb64a3'];
 function Header(props){
+    const grid = [];
+    for(let i = 0; i<100;i++){
+    grid.push({id:i+1,
+      color:"#FFF"});
+    }
     function handleClick(e){
         props.setSelectedColor(e.target.name);
     }
+
+    function newGame(e){
+        props.setGridDraw(grid);
+    }
+
     return (
         <header className="header">
            <div className="header__buttonCont">
-               <button className="buttonCont__button">New game</button>
+               <button className="buttonCont__button" onClick={newGame}>New game</button>
                <button className="buttonCont__button">Print</button>
            </div> 
            <div className="header__textCont">
