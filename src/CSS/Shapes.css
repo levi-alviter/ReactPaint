@@ -1,0 +1,42 @@
+.shapeButton{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: none;
+}
+.shapeContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footerTitle{
+    color: #222;
+}
+
+.shapeButton img{
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+.shapeButton:first-child{
+    background-color: #533A71;
+}
+
+.shapeButton:nth-child(2){
+    background-color: #6184DB;
+}
+
+.shapeButton:last-child{
+    background-color: #50C5B7;
+}
+
+@keyframes jump{
+    
+}
