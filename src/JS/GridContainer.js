@@ -1,15 +1,20 @@
 import '../CSS/GridContainer.css';
-import React,{useState,Fragment,useRef} from 'react';
+import starbackground from '../ASSETS/starbackground.png';
+import React,{useState,Fragment} from 'react';
 import html2canvas from 'html2canvas';
-function GridContainer(props){
-    const [mouseIsDown,setMouseDown] = useState(false);
-    const firstGrid = useRef();
-    const secondGrid = useRef();
 
+function GridContainer(props){
+    // Variable que determnará si se ha hecho click 
+    const [mouseIsDown,setMouseDown] = useState(false);
     function updateOnClick(e){
         setGrid(e);
     }
 
+    /*La lógica del programa consiste en que si 
+        se ha detectado que si se ha hecho click sobre el padre
+        entonces la variable bandera se activa y permite que el 
+        onMouseOver haga su trabajo, la variable se desactiva cuando
+        se deja de dar click y el mouseOver deja de operar*/
     function mouseDownFlag(){setMouseDown(true);}
 
     function mouseUpFlag(){setMouseDown(false);}
@@ -29,17 +34,18 @@ function GridContainer(props){
     }
 
     function takeScreen(e){
-        secondGrid.current.style.gap='0';
-        html2canvas(secondGrid.current).then(function(canvas) {    
-                firstGrid.current.replaceChild(canvas,firstGrid.current.firstChild);
+        props.drawing.current.style.gap='0';
+        html2canvas(props.drawing.current).then(function(canvas) {    
+            props.picture.current.replaceChild(canvas,props.picture.current.firstChild);
         });
-        secondGrid.current.style.gap='1px';
+        props.drawing.current.style.gap='1px';
     }
-    
+    // 
     return(
         <Fragment>
-            <section className="FirstGrid" ref={firstGrid}>
+            <section className="FirstGrid" ref={props.picture}>
                 <div className="Image__container">
+                    <img className="Image__containerimage" src={starbackground}/>
                     <p><b>There's no image to download. Draw and print</b></p>
                     <button className="buttonCont__button" onClick={takeScreen}>Print</button>
                 </div>
@@ -49,7 +55,7 @@ function GridContainer(props){
                 onClick={updateOnClick}
                 onMouseDown={mouseDownFlag}
                 onMouseUp={mouseUpFlag}
-                ref={secondGrid}>
+                ref={props.drawing}>
                 {props.gridDraw.map((item)=>{
                     return(
                         <button 
@@ -64,9 +70,6 @@ function GridContainer(props){
                     );
                 })}
             </div>
-            <button onClick={takeScreen}>
-                Click me
-            </button>
         </Fragment>
     );
 }

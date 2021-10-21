@@ -21,7 +21,11 @@
     align-items: center;
     position: absolute;
 }   
-
+.Image__containerimage{
+    width: 80px;
+    height: 80px;
+    object-fit: scale-down;
+}
 .Image__container p{
     text-align: center;
     width: 100%;
