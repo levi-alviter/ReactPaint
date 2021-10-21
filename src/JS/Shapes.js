@@ -17,6 +17,7 @@ function ButtonContainer(props){
         else
             circleArray.push({id:i+1,color:morado});
       }
+    
     for(let i = 0; i<100;i++){
         if(i===6 || i === 15 || (i>=24 && i<=25) || (i>=33 && i<=34) || (i>=42 && i<=47) ||(i>=55 && i<=56) ||(i>=64 && i<=65) || i === 74 || i === 83 || i === 92){
             rayoArray.push({id:i+1,
