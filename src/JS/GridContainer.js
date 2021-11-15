@@ -45,7 +45,7 @@ function GridContainer(props){
         <Fragment>
             <section className="FirstGrid" ref={props.picture}>
                 <div className="Image__container">
-                    <img className="Image__containerimage" src={starbackground}/>
+                    <img className="Image__containerimage" src={starbackground} alt="Star"/>
                     <p><b>There's no image to download. Draw and print</b></p>
                     <button className="buttonCont__button" onClick={takeScreen}>Print</button>
                 </div>

@@ -11,8 +11,7 @@
 .shapeContainer{
     display: flex;
     width: 100%;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-evenly;
 }
 
 .footerTitle{
