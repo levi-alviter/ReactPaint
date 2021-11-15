@@ -17,7 +17,15 @@ function Header(props){
       // Se pone el estatus en loading
       props.setStatus(props.LOADING_STATUS);
       // Se obtienen todos los colores del objeto que regresa la API y se guardan en otro en colorPallete agregando el símbolo de #
-      response.data.colors.forEach((item)=>{colorPallete.push(`#${item.hex}`);});
+      response.data.colors.forEach((item)=>{
+            if(item)
+              colorPallete.push(`#${item.hex}`);
+            else{
+              // Esta línea es necesaria porque algunas veces la api regresa undefined en algunos colores. PD No me odies :c. 
+              let numero = Math.random() * (999 - 0);
+              colorPallete.push(numero);
+            }
+          });
       // Se asigna colorPallete a pallete
       setPallete(colorPallete);
       // Se asigna completado al estado
@@ -72,11 +80,11 @@ function Header(props){
         </div>
         <div className="header__colorbuttonCont">
           <ul className="colorList">
-            {pallete.map(color=>{
+            {pallete.map((color,index)=>{
             const isSelected = color === props.selectedColor;
             const borderStyle = isSelected ? '3px solid #5277da': 'none';
             return (
-              <li key={color}
+              <li key={`${color+index}`}
                 className="colorItem">
                   {/* Impresión del arreglo en elementos JSX para más información ver color picker*/}
                   <button  style={{
