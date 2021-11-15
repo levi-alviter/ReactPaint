@@ -53,13 +53,13 @@ function ButtonContainer(props){
         <h2 className="footerTitle">Choose a predefined shape</h2>
         <div className="shapeContainer">
             <button className="shapeButton" onClick={drawCircle}>
-                <img src={circle}/>
+                <img src={circle} alt="circle"/>
             </button>
             <button className="shapeButton" onClick={drawStar}>
-                <img src={star}/>
+                <img src={star} alt="star"/>
             </button>
             <button className="shapeButton" onClick={drawRayo}>
-                <img src={rayo}/>
+                <img src={rayo} alt="rayo"/>
             </button>
         </div>
         </Fragment>
